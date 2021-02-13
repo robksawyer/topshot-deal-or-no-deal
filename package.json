@@ -5,9 +5,15 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "component": "foldit -c ",
+    "context": "foldit -x ",
+    "api": "foldit -api ",
+    "page": "foldit -p "
   },
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "next": "10.0.6",
     "postcss": "^8.2.6",
     "react": "17.0.1",
@@ -25,6 +31,7 @@
     "postcss-nested": "^5.0.3",
     "postcss-preset-env": "^6.7.0",
     "postcss-selector-not": "^5.0.0",
+    "scaffolding-nextjs": "^2.0.4",
     "tailwindcss": "^2.0.3"
   }
 }
