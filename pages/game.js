@@ -35,13 +35,13 @@ export async function getStaticProps(context) {
       id: 1,
       coverUrl: '/img/bart-head.jpg',
       momentUrl:
-        'https://www.nbatopshot.com/moment/robksawyer+3f167cba-22a4-4254-8eb9-97016254aef9',
+        'https://www.nbatopshot.com/moment/robksawyer+4ff2b34f-4962-47e5-8fa1-f13a74e92c33',
     },
     {
       id: 2,
       coverUrl: '/img/bart-head.jpg',
       momentUrl:
-        'https://www.nbatopshot.com/moment/robksawyer+3f167cba-22a4-4254-8eb9-97016254aef9',
+        'https://www.nbatopshot.com/moment/26707296-70e7-4fde-bc7e-5db1a3094a49',
     },
     {
       id: 3,
@@ -75,7 +75,21 @@ export async function getStaticProps(context) {
     }
   }
 
-  const momentIds = input.map(({ momentUrl: url }) => url.split('+')[1].trim())
+  const momentIds = input.map(({ momentUrl: url }) => {
+    let id = null
+    const s1 = url.split('+')
+
+    if (s1?.length > 1) {
+      console.log('s1', s1)
+      id = s1[1]?.trim()
+    } else {
+      const s2 = url.split('/')
+      console.log('s2', s2)
+      id = s2[s2.length - 1].trim()
+    }
+    console.log('id', id)
+    return id
+  })
   console.log('Moment Ids', momentIds)
 
   const items = await Promise.all([
@@ -96,53 +110,22 @@ export async function getStaticProps(context) {
       )
     })
     .then((results) => {
+      console.log('results', results)
       // Log the results to the console
       // You would do something with both sets of data here
-      const data = results.map(({ data }) => data?.getMintedMoment?.data)
+      // const data = results.map(({ data }) => data?.getMintedMoment?.data)
 
       return input.map((item, i) => {
-        const { assetPathPrefix } = data[i]
-        const tItem = item
-        tItem.assetPathPrefix = assetPathPrefix
+        console.log('item', item)
+        console.log('results', results[i])
+        const { play } = results[i]
+        const { assets } = play
+        const { images, videos } = assets
+        console.log('images, videos', images, videos)
+        const tItem = input[i]
+        tItem.assets = assets
         return tItem
       })
-      /**
-       Example data:
-       {
-          id: '3f167cba-22a4-4254-8eb9-97016254aef9',
-          version: '1',
-          sortID: '',
-          set: {
-            id: 'ad8e85a4-2240-4604-95f6-be826966d988',
-            flowName: 'Cool Cats',
-            flowSeriesNumber: 2,
-            setVisualId: 'SET_VISUAL_COMMON'
-          },
-          setPlay: {
-            ID: '1071b306-fa0b-48f3-8701-829c0ac5938c',
-            flowRetired: false,
-            circulationCount: 3461
-          },
-          assetPathPrefix: 'https://assets.nbatopshot.com/editions/2_cool_cats_common/00ce687f-6c1f-4aef-956a-6e9418680b2d/play_00ce687f-6c1f-4aef-956a-6e9418680b2d_2_cool_cats_common_capture_',
-          play: {
-            id: '00ce687f-6c1f-4aef-956a-6e9418680b2d',
-            stats: [Object],
-            description: 'You could write a textbook about how Luka Doncic uses angles and momentum to manipulate the defense. The 21-year-old rocks world-class Houston Rockets defender P.J. Tucker onto his heels before claiming his space in the paint and dishing off to Willie Cauley-Stein for an alley-oop.',
-            statsPlayerGameScores: [Object],
-            statsPlayerSeasonAverageScores: [Object]
-          },
-          price: null,
-          listingOrderID: '',
-          flowId: '2701320',
-          owner: {
-            dapperID: 'google-oauth2|106597977111606407035',
-            username: 'robksawyer',
-            profileImageUrl: 'https://storage.googleapis.com/dapper-profile-icons/avatar-abstract-2.png'
-          },
-          flowSerialNumber: '745',
-          forSale: false
-        }
-       */
     })
     .catch((error) => {
       // if there's an error, log it

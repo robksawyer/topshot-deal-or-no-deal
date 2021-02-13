@@ -58,7 +58,11 @@ const nextConfig = {
   //   ]
   // },
   images: {
-    domains: ['assets.nbatopshot.com', 'nbatopshot.com'],
+    domains: [
+      'assets.nbatopshot.com',
+      'nbatopshot.com',
+      'storage.googleapis.com',
+    ],
   },
   // distDir: 'build',
   // serverRuntimeConfig: { // Will only be available on the server side

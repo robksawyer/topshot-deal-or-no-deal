@@ -22,15 +22,37 @@ const GamePiece = (props) => {
       coverUrl: '/img/bart-head.jpg',
       momentUrl:
         'https://www.nbatopshot.com/moment/robksawyer+3f167cba-22a4-4254-8eb9-97016254aef9',
-      assetPathPrefix: '',
+      assets: {
+        videos: [
+          {
+            type: 'PLAY_VIDEO_TYPE_VERTICAL',
+            url:
+              'https://storage.googleapis.com/assets-nbatopshot/plays/doncic_l_assist_dalvhou_verdap_jan_04_2021_vertical_9x16.mp4',
+            videoLength: 17067,
+          },
+          {
+            type: 'PLAY_VIDEO_TYPE_SQUARE',
+            url:
+              'https://storage.googleapis.com/assets-nbatopshot/plays/doncic_l_assist_dalvhou_verdap_jan_04_2021_square_9x16.mp4',
+            videoLength: 7061,
+          },
+        ],
+        images: [
+          {
+            type: 'PLAY_IMAGE_TYPE_PLAYER',
+            url:
+              'https://storage.googleapis.com/assets-nbatopshot/players/00516-GettyImages-1230427406_cropped.jpg',
+          },
+        ],
+      },
     },
   } = props
 
   const { setSelected, selected } = useStore()
 
-  const { coverUrl, momentUrl, id, assetPathPrefix } = item
-
-  console.log('selected', selected)
+  const { coverUrl, momentUrl, id, assets } = item
+  const { images } = assets
+  console.log('images', images)
   return (
     <Tag
       className={`${styles.game_piece} ${
@@ -52,7 +74,7 @@ const GamePiece = (props) => {
           <div className="text-3xl font-bold text-black absolute flex justify-center items-center">
             <p className="uppercase py-10">
               <Image
-                src={assetPathPrefix}
+                src={images[0].url}
                 alt="Moment preview"
                 width={320}
                 height={320}
