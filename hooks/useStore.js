@@ -11,4 +11,6 @@ export const useStore = create((set) => ({
   setImages: (val) => set((state) => ({ images: val })),
   uploading: false,
   setUploading: (val) => set((state) => ({ uploading: val })),
+  selected: [],
+  setSelected: (val) => set((state) => state.selected.push(val)),
 }))
