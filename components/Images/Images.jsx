@@ -27,7 +27,11 @@ const Images = (props) => {
       {images.map((image, i) => (
         <div key={i} className="fadein">
           <div onClick={() => removeImage(image.public_id)} className="delete">
-            <FontAwesomeIcon icon={faTimesCircle} size="2x" />
+            <FontAwesomeIcon
+              icon={faTimesCircle}
+              size="2x"
+              className="w-12 h-12"
+            />
           </div>
           <img src={image.secure_url} alt="" />
         </div>

@@ -12,7 +12,7 @@ import styles from './Spinner.module.css'
 const Spinner = (props) => {
   const {
     tagName: Tag = 'div',
-    className = 'spinner fadein',
+    className = 'spinner fadein w-screen flex justify-center items-center py-24',
     variant = 'default',
     children = '',
   } = props
@@ -23,7 +23,12 @@ const Spinner = (props) => {
         styles[`spinner__${variant}`]
       } ${className}`}
     >
-      <FontAwesomeIcon icon={faBowlingBall} size="5x" color="#3B5998" />
+      <FontAwesomeIcon
+        icon={faBowlingBall}
+        size="5x"
+        color="#3B5998"
+        className="w-12 h-12 animate-spin"
+      />
     </Tag>
   )
 }

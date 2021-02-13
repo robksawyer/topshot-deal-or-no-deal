@@ -76,7 +76,7 @@ const ImageUploadForm = (props) => {
         styles[`image_upload_form__${variant}`]
       } ${className}`}
     >
-      <p className="text-md text-center">
+      <p className="text-md text-center py-8">
         Select an image to hide your prizes.
       </p>
       {content()}
