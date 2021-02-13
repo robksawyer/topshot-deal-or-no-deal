@@ -32,3 +32,20 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## User Flow
+
+> Note: This is a state based app, none of the data is saved in a database. Consider it a one time use sort of thing.
+
+A user...
+
+1. enters on the creation page
+1. uploads a logo. This is the image that hides the content being selected later.
+1. adds seven moment links from https://nbatopshot.com (Fully qualified url to the moment content. This includes the serial. e.g. https://www.nbatopshot.com/moment/robksawyer+3f167cba-22a4-4254-8eb9-97016254aef9)
+   - These are the moments that are being wagered. And later selected by the player.
+1. after saving, the user is redirected to the game board.
+1. user then proceeds to allow player to make selections. See Game Play for more.
+
+## Game Play
+
+Deal or No Deal is a game of choice and luck. First a user selects 2 of the 7 moments displayed on the board. They continue to choose whether or not to keep one of the moments selected, or to uncover two more of the hidden boxes, this continues until the user is either satisfied and selects a moment, or they are stuck at the last moment which they then have to take.
