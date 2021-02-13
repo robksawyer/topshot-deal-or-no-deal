@@ -1,3 +1,4 @@
+import React from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
@@ -12,7 +13,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header className="flex w-full h-auto justify-center items-center">
+      <header className="flex w-full h-auto justify-center items-center mt-32">
         <p className="text-3xl text-center">NBA Top Shot: Deal or No Deal</p>
       </header>
 
