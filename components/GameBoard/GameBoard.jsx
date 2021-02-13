@@ -36,7 +36,7 @@ const shuffle = (array) => {
 const GameBoard = (props) => {
   const {
     tagName: Tag = 'div',
-    className = 'flex justify-center items-center',
+    className = 'flex flex-col justify-center items-center w-auto h-screen',
     variant = 'default',
     children = '',
     items = [
@@ -94,7 +94,7 @@ const GameBoard = (props) => {
   const topRow = shuffledItems.slice(0, 4)
 
   // Get the bottom row of items
-  const bottomRow = shuffledItems.slice(5, shuffledItems.length)
+  const bottomRow = shuffledItems.slice(4, shuffledItems.length)
 
   return (
     <Tag
@@ -102,12 +102,12 @@ const GameBoard = (props) => {
         styles[`game_board__${variant}`]
       } ${className}`}
     >
-      <div className="grid-cols-4 gap-4">
+      <div className="grid gap-4 grid-cols-4 ">
         {topRow.map((item, i) => (
           <GamePiece key={`tr-${i}`} item={item} />
         ))}
       </div>
-      <div className="grid-cols-3 gap-4">
+      <div className="grid gap-4 grid-cols-3 w-auto">
         {bottomRow.map((item, j) => (
           <GamePiece key={`br-${j}`} item={item} />
         ))}

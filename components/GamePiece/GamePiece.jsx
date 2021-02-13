@@ -12,17 +12,17 @@ import Spinner from '../Spinner'
 const GamePiece = (props) => {
   const {
     tagName: Tag = 'a',
-    className = '',
+    className = 'flex justify-center items-center',
     variant = 'default',
     children = '',
     item = {
-      imageUrl: '/img/bart-head.jpg',
+      coverUrl: '/img/bart-head.jpg',
       momentUrl:
         'https://www.nbatopshot.com/moment/robksawyer+3f167cba-22a4-4254-8eb9-97016254aef9',
     },
   } = props
 
-  const { imageUrl, momentUrl } = item
+  const { coverUrl, momentUrl, id } = item
   return (
     <Tag
       className={`${styles.game_piece} ${
@@ -32,13 +32,10 @@ const GamePiece = (props) => {
       target="_blank"
       rel="noreferer"
     >
-      <Image
-        loader={<Spinner />}
-        src={imageUrl}
-        alt="Hide image"
-        width={320}
-        height={320}
-      />
+      <Image src={coverUrl} alt="Hide image" width={320} height={320} />
+      <div className="text-3xl font-bold bg-opacity-50 bg-black rounded-full w-16 h-16 text-white absolute flex justify-center items-center">
+        {id}
+      </div>
     </Tag>
   )
 }
