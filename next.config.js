@@ -60,7 +60,7 @@ const nextConfig = {
   images: {
     domains: ['via.placeholder.com', 'images.ctfassets.net'],
   },
-  distDir: 'build',
+  // distDir: 'build',
   // serverRuntimeConfig: { // Will only be available on the server side
   //   wordpressApiUrl: process.env.WORDPRESS_API_URL
   // },
