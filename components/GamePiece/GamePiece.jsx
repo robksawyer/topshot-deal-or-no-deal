@@ -22,12 +22,13 @@ const GamePiece = (props) => {
       coverUrl: '/img/bart-head.jpg',
       momentUrl:
         'https://www.nbatopshot.com/moment/robksawyer+3f167cba-22a4-4254-8eb9-97016254aef9',
+      assetPathPrefix: '',
     },
   } = props
 
   const { setSelected, selected } = useStore()
 
-  const { coverUrl, momentUrl, id } = item
+  const { coverUrl, momentUrl, id, assetPathPrefix } = item
 
   console.log('selected', selected)
   return (
@@ -49,7 +50,14 @@ const GamePiece = (props) => {
       {selected.indexOf(id) > -1 ? (
         <>
           <div className="text-3xl font-bold text-black absolute flex justify-center items-center">
-            <p className="uppercase py-10">Moment here</p>
+            <p className="uppercase py-10">
+              <Image
+                src={assetPathPrefix}
+                alt="Moment preview"
+                width={320}
+                height={320}
+              />
+            </p>
           </div>
         </>
       ) : (

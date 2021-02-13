@@ -58,7 +58,7 @@ const nextConfig = {
   //   ]
   // },
   images: {
-    domains: ['via.placeholder.com', 'images.ctfassets.net'],
+    domains: ['assets.nbatopshot.com', 'nbatopshot.com'],
   },
   // distDir: 'build',
   // serverRuntimeConfig: { // Will only be available on the server side
