@@ -4,17 +4,18 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faImages, faImage } from '@fortawesome/free-solid-svg-icons'
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 import styles from './Images.module.css'
 
 const Images = (props) => {
   const {
     tagName: Tag = 'div',
-    className = 'buttons fadein',
+    className = '',
     variant = 'default',
     children = '',
-    onChange = (e) => console.log('onChange fired.'),
+    images = [],
+    removeImage = () => console.log('Removing image...'),
   } = props
 
   return (
@@ -23,19 +24,14 @@ const Images = (props) => {
         styles[`images__${variant}`]
       } ${className}`}
     >
-      <div className="button">
-        <label htmlFor="single">
-          <FontAwesomeIcon icon={faImage} color="#3B5998" size="10x" />
-        </label>
-        <input type="file" id="single" onChange={onChange} />
-      </div>
-
-      <div className="button">
-        <label htmlFor="multi">
-          <FontAwesomeIcon icon={faImages} color="#6d84b4" size="10x" />
-        </label>
-        <input type="file" id="multi" onChange={onChange} multiple />
-      </div>
+      {images.map((image, i) => (
+        <div key={i} className="fadein">
+          <div onClick={() => removeImage(image.public_id)} className="delete">
+            <FontAwesomeIcon icon={faTimesCircle} size="2x" />
+          </div>
+          <img src={image.secure_url} alt="" />
+        </div>
+      ))}
     </Tag>
   )
 }

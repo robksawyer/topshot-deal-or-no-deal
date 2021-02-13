@@ -6,6 +6,10 @@ import PropTypes from 'prop-types'
 
 import styles from './ImageUploadForm.module.css'
 
+import Spinner from '../Spinner'
+import Buttons from '../Buttons'
+import Images from '../Images'
+
 import { useStore } from '../../hooks/useStore'
 
 const ImageUploadForm = (props) => {
@@ -51,16 +55,15 @@ const ImageUploadForm = (props) => {
    * @param {*} id
    */
   const removeImage = (id) => {
-    this.setState({
-      images: this.state.images.filter((image) => image.public_id !== id),
-    })
+    // Allow multiple images for each cover or just one?
+    setImages(images.filter((image) => image.public_id !== id))
   }
 
   const content = () => {
     switch (true) {
       case uploading:
         return <Spinner />
-      case images.length > 0:
+      case images?.length > 0:
         return <Images images={images} removeImage={removeImage} />
       default:
         return <Buttons onChange={onChange} />
