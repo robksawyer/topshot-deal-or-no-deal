@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 
 import styles from './ImageUploadForm.module.css'
 
-import { useStore } from '../.../hooks/useStore'
+import { useStore } from '../../hooks/useStore'
 
 const ImageUploadForm = (props) => {
   const {
