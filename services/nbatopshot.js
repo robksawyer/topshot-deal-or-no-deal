@@ -312,3 +312,110 @@ export const getPlay = (playId) =>
     .then((r) => r.json())
     .then((data) => data)
     .catch((err) => err)
+
+/**
+ * getUserMomentListings
+ * @param {string} playId
+ * @param {string} setId
+ */
+/**
+Example response:
+{
+  "data": {
+    "getUserMomentListings": {
+      "data": {
+        "version": null,
+        "circulationCount": 4000,
+        "flowRetired": true,
+        "set": {
+          "id": "208ae30a-a4fe-42d4-9e51-e6fd1ad2a7a9",
+          "flowName": "Base Set",
+          "setVisualId": "SET_VISUAL_COMMON",
+          "flowSeriesNumber": 2,
+          "__typename": "Set"
+        },
+        "play": {
+          "description": "Taking it to the rack! Late in first quarter play, Philadelphia 76ers rookie point guard Tyrese Maxey glides to the rim and hits the layup off the glass for the first two points of his NBA career against the Washington Wizards on December 23, 2020.",
+          "id": "6d0f4982-015d-4e5c-8e46-0e8a8f9949ac",
+          "stats": {
+            "playerName": "Tyrese Maxey",
+            "dateOfMoment": "2020-12-24T00:00:00Z",
+            "playCategory": "Layup",
+            "teamAtMomentNbaId": "1610612755",
+            "teamAtMoment": "Philadelphia 76ers",
+            "__typename": "PlayStats"
+          },
+          "__typename": "Play"
+        },
+        "assetPathPrefix": "https://assets.nbatopshot.com/editions/2_base_set_common/6d0f4982-015d-4e5c-8e46-0e8a8f9949ac/play_6d0f4982-015d-4e5c-8e46-0e8a8f9949ac_2_base_set_common_capture_",
+        "priceRange": {
+          "min": "100.00000000",
+          "max": "75000.00000000",
+          "__typename": "PriceRange"
+        },
+        "momentListingCount": 266,
+        "__typename": "UserMomentListings"
+      },
+      "__typename": "UserMomentListingsResponse"
+    }
+ */
+export const getUserMomentListings = (playId, setId) =>
+  fetch(`${ENDPOINT}?GetPlayResponse`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+    body: JSON.stringify({
+      operationName: 'GetUserMomentListingsDefault',
+      query: `
+        query GetUserMomentListingsDefault($input: GetUserMomentListingsInput!) {
+            getUserMomentListings(input: $input) {
+            data {
+                version
+                circulationCount
+                flowRetired
+                set {
+                id
+                flowName
+                setVisualId
+                flowSeriesNumber
+                __typename
+                }
+                play {
+                description
+                id
+                stats {
+                    playerName
+                    dateOfMoment
+                    playCategory
+                    teamAtMomentNbaId
+                    teamAtMoment
+                    __typename
+                }
+                __typename
+                }
+                assetPathPrefix
+                priceRange {
+                min
+                max
+                __typename
+                }
+                momentListingCount
+                __typename
+            }
+            __typename
+            }
+        }      
+      `,
+      variables: {
+        input: {
+          playID: playId,
+          setID: setId,
+        },
+      },
+    }),
+  })
+    .then((r) => r.json())
+    .then((data) => data)
+    .catch((err) => err)
