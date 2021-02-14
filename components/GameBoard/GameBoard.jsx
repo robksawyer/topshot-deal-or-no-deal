@@ -119,9 +119,9 @@ const GameBoard = (props) => {
 
       <button
         onClick={() => setReset(!reset)}
-        className="text-xl text-black text-center focus:outline-none focus:shadow-none bg-white py-4 px-12 my-16 hover:bg-opacity-75 duration-500 ease-in-out transition"
+        className="text-sm text-white text-center min-w-xl focus:outline-none focus:shadow-none bg-accent0 py-3 px-12 my-16 hover:bg-opacity-75 duration-500 ease-in-out transition uppercase tracking-widest glow-sm-accent0 hover:glow-md-accent0"
       >
-        Reset Game
+        Reset Your Game
       </button>
     </Tag>
   )

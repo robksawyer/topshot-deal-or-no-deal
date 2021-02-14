@@ -34,15 +34,22 @@
     }
     .text-case-title {
       font-size: 1rem;
-     
     }
-    .text-hero-subhead{
+    .text-hero-subhead {
       font-size: 0.875rem;
       letter-spacing: 0.15em;
       line-height: 1.76;
     }
     .text-cta {
       @apply font-medium tracking-widest;
+    }
+
+    .glow-sm-accent0 {
+      box-shadow: 0 20px 20px -17px rgba(50, 94, 255, 0.53);
+    }
+    .glow-md-accent0 {
+      transform: scale(1.2);
+      box-shadow: 0 30px 45px -15px rgba(50, 94, 255, 0.65);
     }
 
     /* Debugging */
