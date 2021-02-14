@@ -62,7 +62,7 @@ const GamePiece = (props) => {
       onClick={(e) => {
         setSelected(id)
         // Navigate to moment
-        window.open(momentUrl, '_blank')
+        // window.open(momentUrl, '_blank')
       }}
       style={{
         width: '320px',
