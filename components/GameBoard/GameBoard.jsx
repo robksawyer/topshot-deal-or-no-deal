@@ -1,7 +1,7 @@
 /**
  * @file GameBoard.js
  */
-import * as React from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import styles from './GameBoard.module.css'
@@ -84,11 +84,15 @@ const GameBoard = (props) => {
       },
     ],
   } = props
+  const [reset, setReset] = useState(false)
 
   // Randomly sort the items
-  const shuffledItems = shuffle(items)
+  let shuffledItems = shuffle(items)
 
   // console.log('shuffledItems', shuffledItems)
+  useEffect(() => {
+    shuffledItems = shuffle(items)
+  }, [reset])
 
   // Get the top row of items
   const topRow = shuffledItems.slice(0, 4)
@@ -112,6 +116,13 @@ const GameBoard = (props) => {
           <GamePiece key={`br-${j}`} item={item} />
         ))}
       </div>
+
+      <button
+        onClick={() => setReset(!reset)}
+        className="text-xl text-black text-center focus:outline-none focus:shadow-none bg-white py-4 px-12 my-16 hover:bg-opacity-75 duration-500 ease-in-out transition"
+      >
+        Reset Game
+      </button>
     </Tag>
   )
 }

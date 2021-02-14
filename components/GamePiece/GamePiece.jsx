@@ -1,7 +1,7 @@
 /**
  * @file GamePiece.js
  */
-import * as React from 'react'
+import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
 import Image from 'next/image'
 
@@ -49,6 +49,7 @@ const GamePiece = (props) => {
   } = props
 
   const { setSelected, selected } = useStore()
+  const ref = useRef()
 
   const {
     coverUrl,
@@ -65,9 +66,10 @@ const GamePiece = (props) => {
   const { flowName } = set
   const { images, videos } = assets
 
-  console.log('stats', stats)
   const { playerName, playCategory, teamAtMoment, dateOfMoment } = stats
   const { min, max } = priceRange
+
+  console.log('ref.current', ref.current)
   return (
     <Tag
       className={`${styles.game_piece} ${
@@ -85,13 +87,35 @@ const GamePiece = (props) => {
       }}
     >
       {selected.indexOf(id) > -1 ? (
-        <div className="absolute flex flex-col justify-center items-center">
-          <Image
+        <div
+          className="absolute flex flex-col justify-center items-center overflow-hidden object-contain"
+          style={{
+            width: '320px',
+            height: '320px',
+          }}
+        >
+          {/* <Image
             src={images[0].url}
             alt="Moment preview"
             width={320}
             height={320}
-          />
+          /> */}
+          <video
+            ref={ref}
+            width="100%"
+            height="100%"
+            // controls={false}
+            muted
+            autoPlay
+            playsinline
+            preload="auto"
+            loop
+          >
+            <source src={videos[0].url} type="video/mp4" />
+            <p className="text-sm text-center text-white">
+              Your browser doesn’t support mp4 or webm html5 videos.
+            </p>
+          </video>
           <p className="absolute text-3xl font-bold text-white right-0 top-0 bg-black bg-opacity-50 p-4">
             ${parseFloat(min).toFixed(2)}
           </p>
