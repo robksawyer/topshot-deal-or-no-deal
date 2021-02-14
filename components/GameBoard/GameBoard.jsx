@@ -88,7 +88,7 @@ const GameBoard = (props) => {
   // Randomly sort the items
   const shuffledItems = shuffle(items)
 
-  console.log('shuffledItems', shuffledItems)
+  // console.log('shuffledItems', shuffledItems)
 
   // Get the top row of items
   const topRow = shuffledItems.slice(0, 4)

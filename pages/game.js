@@ -110,20 +110,30 @@ export async function getStaticProps(context) {
       )
     })
     .then((results) => {
-      console.log('results', results)
+      // console.log('results', results)
       // Log the results to the console
       // You would do something with both sets of data here
       // const data = results.map(({ data }) => data?.getMintedMoment?.data)
 
       return input.map((item, i) => {
-        console.log('item', item)
-        console.log('results', results[i])
-        const { play } = results[i]
+        const { play } = results[i].playData
+        const {
+          circulationCount,
+          priceRange,
+          momentListingCount,
+          set,
+          play: playDetails,
+        } = results[i].listingData
         const { assets } = play
-        const { images, videos } = assets
-        console.log('images, videos', images, videos)
+        // const { images, videos } = assets
+        // console.log('images, videos', images, videos)
         const tItem = input[i]
         tItem.assets = assets
+        tItem.priceRange = priceRange
+        tItem.circulationCount = circulationCount
+        tItem.play = playDetails
+        tItem.set = set
+        tItem.momentListingCount = momentListingCount
         return tItem
       })
     })

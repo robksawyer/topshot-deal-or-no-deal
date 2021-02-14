@@ -24,31 +24,31 @@ const ENDPOINT = 'https://api.nba.dapperlabs.com/marketplace/graphql'
     version: '1',
     sortID: '',
     set: {
-    id: 'ad8e85a4-2240-4604-95f6-be826966d988',
-    flowName: 'Cool Cats',
-    flowSeriesNumber: 2,
-    setVisualId: 'SET_VISUAL_COMMON'
+        id: 'ad8e85a4-2240-4604-95f6-be826966d988',
+        flowName: 'Cool Cats',
+        flowSeriesNumber: 2,
+        setVisualId: 'SET_VISUAL_COMMON'
     },
     setPlay: {
-    ID: '1071b306-fa0b-48f3-8701-829c0ac5938c',
-    flowRetired: false,
-    circulationCount: 3461
+        ID: '1071b306-fa0b-48f3-8701-829c0ac5938c',
+        flowRetired: false,
+        circulationCount: 3461
     },
     assetPathPrefix: 'https://assets.nbatopshot.com/editions/2_cool_cats_common/00ce687f-6c1f-4aef-956a-6e9418680b2d/play_00ce687f-6c1f-4aef-956a-6e9418680b2d_2_cool_cats_common_capture_',
     play: {
-    id: '00ce687f-6c1f-4aef-956a-6e9418680b2d',
-    stats: [Object],
-    description: 'You could write a textbook about how Luka Doncic uses angles and momentum to manipulate the defense. The 21-year-old rocks world-class Houston Rockets defender P.J. Tucker onto his heels before claiming his space in the paint and dishing off to Willie Cauley-Stein for an alley-oop.',
-    statsPlayerGameScores: [Object],
-    statsPlayerSeasonAverageScores: [Object]
+        id: '00ce687f-6c1f-4aef-956a-6e9418680b2d',
+        stats: [Object],
+        description: 'You could write a textbook about how Luka Doncic uses angles and momentum to manipulate the defense. The 21-year-old rocks world-class Houston Rockets defender P.J. Tucker onto his heels before claiming his space in the paint and dishing off to Willie Cauley-Stein for an alley-oop.',
+        statsPlayerGameScores: [Object],
+        statsPlayerSeasonAverageScores: [Object]
     },
     price: null,
     listingOrderID: '',
     flowId: '2701320',
     owner: {
-    dapperID: 'google-oauth2|106597977111606407035',
-    username: 'robksawyer',
-    profileImageUrl: 'https://storage.googleapis.com/dapper-profile-icons/avatar-abstract-2.png'
+        dapperID: 'google-oauth2|106597977111606407035',
+        username: 'robksawyer',
+        profileImageUrl: 'https://storage.googleapis.com/dapper-profile-icons/avatar-abstract-2.png'
     },
     flowSerialNumber: '745',
     forSale: false

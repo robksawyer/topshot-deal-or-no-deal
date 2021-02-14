@@ -14,7 +14,7 @@ import { useStore } from '../../hooks/useStore'
 const GamePiece = (props) => {
   const {
     tagName: Tag = 'button',
-    className = 'flex justify-center items-center focus:shadow-none focus:outline-none border-2 border-black',
+    className = 'flex justify-center items-center focus:shadow-none focus:outline-none',
     variant = 'default',
     children = '',
     item = {
@@ -50,9 +50,24 @@ const GamePiece = (props) => {
 
   const { setSelected, selected } = useStore()
 
-  const { coverUrl, momentUrl, id, assets } = item
-  const { images } = assets
-  console.log('images', images)
+  const {
+    coverUrl,
+    momentUrl,
+    id,
+    assets,
+    circulationCount,
+    momentListingCount,
+    play,
+    priceRange,
+    set,
+  } = item
+  const { stats } = play
+  const { flowName } = set
+  const { images, videos } = assets
+
+  console.log('stats', stats)
+  const { playerName, playCategory, teamAtMoment, dateOfMoment } = stats
+  const { min, max } = priceRange
   return (
     <Tag
       className={`${styles.game_piece} ${
@@ -62,7 +77,7 @@ const GamePiece = (props) => {
       onClick={(e) => {
         setSelected(id)
         // Navigate to moment
-        window.open(momentUrl, '_blank')
+        // window.open(momentUrl, '_blank')
       }}
       style={{
         width: '320px',
@@ -70,25 +85,35 @@ const GamePiece = (props) => {
       }}
     >
       {selected.indexOf(id) > -1 ? (
-        <>
-          <div className="text-3xl font-bold text-black absolute flex justify-center items-center">
-            <p className="uppercase py-10">
-              <Image
-                src={images[0].url}
-                alt="Moment preview"
-                width={320}
-                height={320}
-              />
-            </p>
-          </div>
-        </>
+        <div className="absolute flex flex-col justify-center items-center">
+          <Image
+            src={images[0].url}
+            alt="Moment preview"
+            width={320}
+            height={320}
+          />
+          <p className="absolute text-3xl font-bold text-white right-0 top-0 bg-black bg-opacity-50 p-4">
+            ${parseFloat(min).toFixed(2)}
+          </p>
+          <a
+            href={momentUrl}
+            target="_blank"
+            rel="noreferrer"
+            title="See moment on NBA Top Shot"
+            className="absolute bottom-0 pb-6 text-white opacity-100 text-center hover:text-extrude-sm transition duration-500 ease-in-out uppercase text-shadow-lg"
+          >
+            <p className="text-xl font-bold leading-7">{playerName}</p>
+            <p className="text-sm leading-none">{teamAtMoment}</p>
+            <p className="text-sm">{playCategory}</p>
+          </a>
+        </div>
       ) : (
-        <>
+        <div className="flex flex-col items-center justify-center border-2 border-black hover:border-blue-500">
           <Image src={coverUrl} alt="Hide image" width={320} height={320} />
           <div className="text-3xl font-bold bg-opacity-50 bg-black rounded-full w-16 h-16 text-white absolute flex justify-center items-center">
-            {id}
+            {id + 1}
           </div>
-        </>
+        </div>
       )}
     </Tag>
   )
