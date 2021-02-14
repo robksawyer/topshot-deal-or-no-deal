@@ -36,7 +36,7 @@ const shuffle = (array) => {
 const GameBoard = (props) => {
   const {
     tagName: Tag = 'div',
-    className = 'flex flex-col justify-center items-center w-auto h-auto py-24',
+    className = 'flex flex-col justify-center items-center w-auto h-auto py-24 bg-black',
     variant = 'default',
     children = '',
     items = [

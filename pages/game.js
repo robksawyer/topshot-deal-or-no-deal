@@ -9,9 +9,9 @@ import Footer from '../components/Footer'
 export default function Game({ items }) {
   console.log('items', items)
   return (
-    <div className="w-screen h-auto">
-      <header className="flex w-full h-auto justify-center items-center mt-32">
-        <p className="text-3xl text-center font-bold">
+    <div className="w-screen h-auto ">
+      <header className="flex w-full h-28 justify-center items-center mt-32 bg-bluetop   ">
+        <p className="text-3xl text-center text-white font-bold">
           NBA Top Shot: Deal or No Deal
         </p>
       </header>

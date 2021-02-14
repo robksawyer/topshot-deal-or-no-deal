@@ -180,6 +180,7 @@ module.exports = {
         accent2: '#FC65A2',
         accent3: '#FFFFFF',
         accent4: '#191414',
+        bluetop: 'rgb(50, 94, 255)',
         transparent: 'transparent',
         black: '#000',
         white: '#fff',
