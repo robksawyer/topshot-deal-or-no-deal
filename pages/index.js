@@ -7,13 +7,13 @@ import Footer from '../components/Footer'
 
 export default function Home() {
   return (
-    <div className="w-screen h-auto flex justify-center items-center flex-col">
+    <div className="w-screen h-auto flex justify-center items-center flex-col ">
       <Head>
         <title>NBA Top Shot: Deal or No Deal</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header className="flex w-full h-auto justify-center items-center mt-32">
+      <header className="flex w-full justify-center items-center mt-32">
         <p className="text-3xl text-center">NBA Top Shot: Deal or No Deal</p>
       </header>
 
