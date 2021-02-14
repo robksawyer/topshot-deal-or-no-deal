@@ -99,13 +99,21 @@ const GameBoard = (props) => {
 
   // Get the bottom row of items
   const bottomRow = shuffledItems.slice(4, shuffledItems.length)
-
+  const itemsByPrice = items.sort(
+    (a, b) => parseFloat(a.priceRange.min) - parseFloat(b.priceRange.min)
+  )
+  // console.log('items by price :', itemsByPrice)
   return (
     <Tag
       className={`${styles.game_board} ${
         styles[`game_board__${variant}`]
       } ${className}`}
     >
+      <div className="mb-4 grid gap-4 grid-cols-4 overflow-hidden">
+        {itemsByPrice.map((item, i) => (
+          <GamePiece key={`tr-${i}`} item={item} />
+        ))}
+      </div>
       <div className="mb-4 grid gap-4 grid-cols-4 overflow-hidden">
         {topRow.map((item, i) => (
           <GamePiece key={`tr-${i}`} item={item} />
