@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 import styles from './GameBoard.module.css'
 
 import GamePiece from '../GamePiece'
-
+import GameListPiece from '../GameListPiece'
 /**
  * shuffle
  * @see https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
@@ -111,7 +111,7 @@ const GameBoard = (props) => {
     >
       <div className="mb-4 grid gap-4 grid-cols-4 overflow-hidden">
         {itemsByPrice.map((item, i) => (
-          <GamePiece key={`tr-${i}`} item={item} />
+          <GameListPiece key={`tr-${i}`} item={item} />
         ))}
       </div>
       <div className="mb-4 grid gap-4 grid-cols-4 overflow-hidden">
