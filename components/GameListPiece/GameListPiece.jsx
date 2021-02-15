@@ -12,7 +12,7 @@ import { useStore } from '../../hooks/useStore'
 const GameListPiece = (props) => {
   const {
     tagName: Tag = 'button',
-    className = 'flex justify-center items-center focus:shadow-none focus:outline-none',
+    className = 'flex justify-center items-start focus:shadow-none focus:outline-none ',
     variant = 'default',
     children = '',
     item = {
@@ -81,20 +81,19 @@ const GameListPiece = (props) => {
     >
       {/* selected.indexOf(id) */}
       <div
-        className="absolute flex flex-row justify-lefft items-start overflow object-contain"
+        className="absolute flex flex-row justify-items-start  items-start overflow object-contain"
         style={{
-          width: '150px',
+          width: '200px',
           height: '50px',
         }}
       >
         <Image
           src={images[0].url}
           alt="Moment preview"
-          width={50}
-          height={50}
+          width={75}
+          height={75}
         />
-
-        <div className="absolute text-sm font-bold text-white text-left debug1 right-0 top-0 bg-black bg-opacity-20 p-4">
+        <div className="text-sm font-normal text-white text-left right-0 top-0 bg-black bg-opacity-40 p-0">
           ${parseFloat(min).toFixed(2)}
           <p className="text-sm font-bold leading-7">{playerName}</p>
           <p className="text-sm leading-none">{teamAtMoment}</p>
