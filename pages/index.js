@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Head from 'next/head'
+import Router from 'next/router'
+
 import styles from '../styles/Home.module.css'
 
 import ImageUploadForm from '../components/ImageUploadForm'
 import Footer from '../components/Footer'
 
+const TOTAL_MOMENTS = 7
+
 export default function Home() {
+  const ref = useRef()
   return (
     <div className="w-screen h-auto flex justify-center items-center flex-col">
       <Head>
@@ -44,15 +49,42 @@ export default function Home() {
           works.
         </p>
       </div>
+      <form
+        id="momentSelect"
+        onSubmit={() => {
+          console.log('Form submittied')
+          // Router.push('/game')
+        }}
+        className="flex flex-col space-y-6 mt-12 w-full max-w-7xl"
+      >
+        {Array(TOTAL_MOMENTS)
+          .fill()
+          .map((_, i) => (
+            <div
+              key={`moment-${i}`}
+              className="flex items-center justify-center"
+            >
+              <p className="bg-white bg-opacity-50 rounded-full w-16 h-14 text-white flex items-center justify-center font-black mr-6">
+                {i + 1}
+              </p>
+              <input
+                ref={ref}
+                name={`moment-${i}`}
+                placeholder="Enter the exact moment url e.g https://www.nbatopshot.com/moment/robksawyer+0c1808b2-990d-49b6-8216-46283e6cb37c"
+                className="px-3 py-4 w-full"
+              />
+            </div>
+          ))}
+      </form>
 
       {/* <ImageUploadForm className="py-12" /> */}
 
-      <a
+      <button
         href="/game"
         className="text-white text-center border-white border-2 py-4 px-12 my-12 hover:opacity-90 duration-500 ease-in-out transition uppercase tracking-widest text-sm"
       >
         Submit
-      </a>
+      </button>
 
       <Footer />
     </div>
