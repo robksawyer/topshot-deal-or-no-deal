@@ -109,7 +109,7 @@ const GameBoard = (props) => {
         styles[`game_board__${variant}`]
       } ${className}`}
     >
-      <div className="mb-4 grid gap-4 grid-cols-4 overflow-hidden">
+      <div className="mb-4 grid gap-4  grid-cols-7 overflow-hidden">
         {itemsByPrice.map((item, i) => (
           <GameListPiece key={`tr-${i}`} item={item} />
         ))}

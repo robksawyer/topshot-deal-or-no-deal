@@ -12,7 +12,7 @@ import { useStore } from '../../hooks/useStore'
 const GameListPiece = (props) => {
   const {
     tagName: Tag = 'button',
-    className = 'flex justify-center items-start focus:shadow-none focus:outline-none ',
+    className = 'flex justify-center items-start focus:shadow-none  px-10 focus:outline-none ',
     variant = 'default',
     children = '',
     item = {
@@ -81,7 +81,7 @@ const GameListPiece = (props) => {
     >
       {/* selected.indexOf(id) */}
       <div
-        className="absolute flex flex-row justify-items-start  items-start overflow object-contain"
+        className="absolute flex flex-row justify-items-start  items-start  object-contain"
         style={{
           width: '200px',
           height: '50px',
